@@ -57,12 +57,14 @@ hr {
 }
 .content .tasks .task button{
     border-radius: 99999px;
-    background-color: black;
+    border-color: #DFDDF1;
+    background-color: #16182E;
     width: 25px;
     height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .content .tasks .task button img{
     width: 15px;
