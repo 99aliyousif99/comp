@@ -76,3 +76,19 @@ hr {
     cursor: pointer;
     padding-top: 40px;
 }
+
+.starting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 250px;
+    padding-top: 20px;
+}
+.starting button{
+    border: none;
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+}

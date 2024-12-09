@@ -4,6 +4,7 @@ import vector from "../../assets/vector (1).svg";
 import checkmark from "../../assets/vector (2).svg";
 const Task = () => {
   return (
+    <>
     <div className="container">
       <div className="content">
         <div className="tour">
@@ -46,7 +47,11 @@ const Task = () => {
         <button className="btn">Skip this</button>
       </div>
     </div>
-    
+    <div className="starting">
+        <button>Get started</button>
+        
+    </div>
+    </>
   );
 };
 
