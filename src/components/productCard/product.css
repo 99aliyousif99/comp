@@ -1,0 +1,139 @@
+.container {
+  background-color: white;
+  width: 487px;
+  height: 347px;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container img {
+  height: 150px;
+}
+.container .shipping {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  margin-bottom: 5px;
+  width: 67px;
+  height: 18px;
+  background-color: #191847;
+  border-radius: 20px;
+  color: aliceblue;
+}
+
+.container .shipping h5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3{
+  font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.content .sale p {
+  font-size: 14px;
+  color: #191847;
+  text-decoration: line-through;
+}
+.content .info p{
+    margin-bottom: 20px;
+    font-size: 8px;
+    color: #191847;
+    
+}
+.content p {
+  font-size: 11px;
+  color: #191847;
+}
+.content h1 {
+  font-weight: bold;
+}
+.content .addToCart button {
+  width: 290px;
+  height: 40px;
+  color: white;
+  background-color: #4788e9;
+  border: none;
+  border-radius: 8px;
+  box-shadow:#1C57EE 0px 5px 1px;
+  margin-bottom: 10px;
+  cursor: pointer; 
+}
+.content .addToCart button:active{
+  background-color: #1C57EE;
+  box-shadow: 0 5px;
+  transform: translateY(4px);
+}
+
+.content .stock .avaliable {
+  width: 6px;
+  height: 6px;
+  background-color: #00d98b;
+}
+.content .stock {
+  gap: 8px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+.content .stock .avaliable {
+  border-radius: 999px;
+}
+
+.content .wishlist {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+  gap: 20px;
+}
+
+.content .wishlist .cartBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px #c9c9da solid;
+  width: 130px;
+  height: 40px;
+  font-size: 10px;
+  font-weight: 400;
+  gap: 6px;
+  cursor: pointer;
+}
+.content .wishlist .cartBtn:active{
+  transform: translateY(4px);
+}
+.content .wishlist .cartBtn img {
+  width: 15px;
+  height: 15px;
+}
+.content .wishlist .wishBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px #c9c9da solid;
+  width: 130px;
+  height: 40px;
+  font-size: 10px;
+  font-weight: 400;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.content .wishlist .wishBtn:active{
+  transform: translateY(4px);
+}
+.content .wishlist .wishBtn img {
+  width: 15px;
+  height: 15px;
+}
