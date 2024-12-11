@@ -36,9 +36,9 @@
   }
   .loading{
     gap: 10px;
-    
     display: flex;
     flex-direction: column;
+    margin-right: 290px;
   }
   .loadBar{
     background-color: black;
@@ -46,10 +46,12 @@
     width: 350px;
     border-radius: 20px;
   }
+  
 .files{
  display: flex;
  align-items: center;
  justify-content: space-between;
+ 
 }
 .files .fileInfo{
   margin-right: 300px;
