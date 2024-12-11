@@ -24,6 +24,7 @@ progress {
 .container .tour button img {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .content p {
@@ -41,9 +42,19 @@ hr {
 }
 
 .content .tasks {
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.content .tasks.show{
+    max-height: 1000px; 
+  opacity: 1;
+}
+.content .tasks.hide{
+    max-height: 0;
+    opacity: 0;
 }
 .content .tasks .task{
     display: flex;
