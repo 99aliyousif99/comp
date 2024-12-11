@@ -4,30 +4,39 @@ import upload from "../../assets/upload.svg";
 import checkmark from "../../assets/vector (2).svg";
 
 const Storage = () => {
-  const [fileName, setFileName] = useState("");
-  const [fileSize, setFileSize] = useState(0);
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [files, setFiles] = useState([]);
 
   const handleFileChange = (event) => {
     const file = event?.target?.files[0];
     if (file) {
-      setFileName(file.name);
-      setFileSize(file.size);
-      setUploadProgress(0);
-      simulateUpload(file.size); 
+      const newFile = {
+        name: file.name,
+        size: file.size / 1024, // Convert bytes to kilobytes
+        progress: 0,
+      };
+      setFiles((prevFiles) => [...prevFiles, newFile]);
+      simulateUpload(newFile, file.size);
     }
   };
 
-  const simulateUpload = (totalSize) => {
+  const simulateUpload = (file, totalSize) => {
     let uploadedSize = 0;
     const interval = setInterval(() => {
-      uploadedSize += totalSize * 0.1; 
+      uploadedSize += totalSize * 0.1;
       if (uploadedSize >= totalSize) {
         uploadedSize = totalSize;
-        clearInterval(interval); 
+        clearInterval(interval);
       }
-      setUploadProgress((uploadedSize / totalSize) * 100);
-    }, 200); 
+      setFiles((prevFiles) =>
+        prevFiles.map((f) =>
+          f.name === file.name ? { ...f, progress: (uploadedSize / totalSize) * 100 } : f
+        )
+      );
+    }, 200);
+  };
+
+  const handleDelete = (fileName) => {
+    setFiles((prevFiles) => prevFiles.filter((file) => file.name !== fileName));
   };
 
   return (
@@ -38,32 +47,34 @@ const Storage = () => {
       </div>
 
       <div className="container">
-        <div className="loadBox">
-          <div className="load">
-            <div
-              className="progress-bar"
-              style={{
-                width: `${uploadProgress}%`,
-                backgroundColor: "#4caf50",
-                height: "100%",
-                transition: "width 0.2s ease-in-out",
-              }}
-            ></div>
+        {files.map((file) => (
+          <div key={file.name} className="loadBox">
+            <div className="load">
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${file.progress}%`,
+                  backgroundColor: "#4caf50",
+                  height: "100%",
+                  transition: "width 0.2s ease-in-out",
+                }}
+              ></div>
+            </div>
+            <div className="remaining">
+              {Math.round((file.progress / 100) * file.size)} out of {file.size.toFixed(2)} KB
+            </div>
+            <div className="fileInfo">
+              <div className="check">
+                {file.progress === 100 && <img src={checkmark} alt="Checkmark" />}
+              </div>
+              <div className="fileName">
+                <h4>{file.name}</h4>
+                <p>{file.size.toFixed(2)} KB</p>
+              </div>
+              <button onClick={() => handleDelete(file.name)}>Delete</button>
+            </div>
           </div>
-          <div className="remaining">
-            {Math.round((uploadProgress / 100) * fileSize)} out of {fileSize} bytes
-          </div>
-        </div>
-        <div className="fileInfo">
-          <div className="check">
-            {uploadProgress === 100 && <img src={checkmark} alt="Checkmark" />}
-          </div>
-          <div className="fileName">
-            <h4>{fileName}</h4>
-            <p>{fileSize} bytes</p>
-          </div>
-          <button onClick={() => setUploadProgress(0)}>Delete</button>
-        </div>
+        ))}
       </div>
     </>
   );
