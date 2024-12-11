@@ -33,7 +33,22 @@ progress {
 }
 .content .progress {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding-bottom: 15px;
+}
+.content .progress .bar{
+  background-color: white;
+  height: 10px;
+  width: 250px;
+  border: solid;
+  border-radius: 20px;
+  border-color: grey;
+}
+.content .progress .bar{
+  background-color: black;
+  height: 10px;
+  width: px;
 }
 hr {
   width: 308px !important;

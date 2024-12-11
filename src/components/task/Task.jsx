@@ -2,42 +2,81 @@ import React from "react";
 import "./task.css";
 import vector from "../../assets/vector (1).svg";
 import checkmark from "../../assets/vector (2).svg";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Task = () => {
+  const [progress, setProgress] = useState(0);
+  const [allStepsCompleted, setAllStepsCompleted] = useState(false);
+  useEffect(() => {
+    checkIfComplete();
+  }, [progress]);
 
+  const checkIfComplete = () => {
+    if (progress >= 100) {
+      setAllStepsCompleted(true);
+    } else {
+      setAllStepsCompleted(false);
+    }
+  };
+  const incrementProgress = () => {
+    setProgress((Progress) => {
+
+      return Progress + 20;
+    });
+  };
+
+  const decrementProgress = () => {
+    setProgress((progress) => {
+      return progress - 20;
+    });
+  };
+  const skipSteps = () => {
+    setAllStepsCompleted(true);
+  };
   const [steps, setSteps] = useState([
     {
       id: 1,
       title: "Experience contextual conversations",
-      complete: true,
+      complete: false,
     },
     {
       id: 2,
       title: "Brand your customer experience",
-      complete: true,
+      complete: false,
     },
     {
       id: 3,
       title: "Offer support beyond your website",
-      complete: true,
+      complete: false,
     },
     {
       id: 4,
       title: "Top customer support with bots",
-      complete: true,
+      complete: false,
     },
     {
       id: 5,
       title: "Build your team",
-      complete: true,
-    }
+      complete: false,
+    },
   ]);
   const [showTasks, setShowTasks] = useState(true);
   const toggle = (id) => {
-    setSteps(steps.map(step => 
-      step.id === id ? { ...step, complete: !step.complete } : step
-    ));
+    setSteps((prevSteps) => {
+      const updatedSteps = prevSteps.map((step) =>
+        step.id === id ? { ...step, complete: !step.complete } : step
+      );
+
+      const toggledStep = updatedSteps.find((step) => step.id === id);
+      if (toggledStep.complete) {
+        incrementProgress();
+        checkIfComplete();
+      } else {
+        decrementProgress();
+      }
+
+      return updatedSteps;
+    });
   };
   const toggleTasks = () => {
     setShowTasks(!showTasks);
@@ -56,12 +95,20 @@ const Task = () => {
           <p>
             Here are a few steps to help you <br /> hit the ground
           </p>
-          <div className="progress">
-            <h3>20%</h3>
-            <progress value={20} max={100} />
+          <div style={{paddingBottom:'20px',width:'260px',display:"flex",alignItems:'center',gap:"10px"}}>
+            {progress}%
+            <div
+              style={{
+                width: `${progress}%`,
+                height: "4px",
+                background: "#16182E",
+                border:"solid",
+                borderRadius:"20px"
+              }}
+            ></div>
           </div>
           <hr />
-          <div className={`tasks ${showTasks ? 'show' : 'hide'}`}>
+          <div className={`tasks ${showTasks ? "show" : "hide"}`}>
             {steps.map((step) => (
               <div className="task" key={step.id}>
                 <button
@@ -76,11 +123,11 @@ const Task = () => {
               </div>
             ))}
           </div>
-          <button className="btn">Skip this</button>
+          <button className="btn" onClick={skipSteps}>Skip this</button>
         </div>
       </div>
       <div className="starting">
-        <button>Get started</button>
+      {allStepsCompleted && <button>Get started</button>}
       </div>
     </>
   );
