@@ -1,13 +1,30 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .upload-container {
-    height: 100px;
+    height: 583px;
+    width: 465px;
     position: relative;
     display: flex;
+    flex-direction: column;
     background-color: #E0EAFD;
     border-radius: 10px;
     margin-bottom: 10px;
     
   }
-  
+  .loadContainer{
+    margin: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 121px;
+    width: 405px;
+    border-radius: 20px;
+  }
   .upload {
     cursor: pointer;
     position: relative;
@@ -17,51 +34,30 @@
     height: 50px;
     
   }
-  
-  .upload-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    background-color: white; 
-    border-radius: 10px;
-  }
-  .container{
-    display: flex;
-    flex-direction: column;
+  .loading{
+    gap: 10px;
     
-  }
-.container .loadBox{
     display: flex;
     flex-direction: column;
-    background-color: #E0EAFD;
-    width: 270px;
-    height: 100px;
-    border-radius: 10px;
-}
-.container .loadBox .load{
-    width: 200px;
-    height: 10px;
+  }
+  .loadBar{
     background-color: black;
-    margin: 30px;
-    border-radius: 20px;
-}
-.container .loadBox .load .remaining{
-    margin-top: 10px;
-}
-  .container .fileInfo{
-    display: flex;
-   height: 50px;
-    flex-direction: row;
-    align-items: center;
-    flex-direction: row;
-    gap: 100px;
-  }
-
-  .container .fileInfo img{
-    background-color: greenyellow;
-    width: 25px;
-    height: 25px;
+    height: 10px;
+    width: 350px;
     border-radius: 20px;
   }
+.files{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.files .fileInfo{
+  margin-right: 300px;
+}
+.files img{
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  border-radius: 90px;
+}
+ 
