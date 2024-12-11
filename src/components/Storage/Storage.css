@@ -26,10 +26,32 @@
     background-color: white; 
     border-radius: 10px;
   }
-
+  .container{
+    display: flex;
+    flex-direction: column;
+    
+  }
+.container .loadBox{
+    display: flex;
+    flex-direction: column;
+    background-color: #E0EAFD;
+    width: 270px;
+    height: 100px;
+    border-radius: 10px;
+}
+.container .loadBox .load{
+    width: 200px;
+    height: 10px;
+    background-color: black;
+    margin: 30px;
+    border-radius: 20px;
+}
+.container .loadBox .load .remaining{
+    margin-top: 10px;
+}
   .container .fileInfo{
     display: flex;
-    justify-content: space-around;
+   height: 50px;
     flex-direction: row;
     align-items: center;
     flex-direction: row;
