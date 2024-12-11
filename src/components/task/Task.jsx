@@ -5,34 +5,6 @@ import checkmark from "../../assets/vector (2).svg";
 import { useState,useEffect } from "react";
 
 const Task = () => {
-  const [progress, setProgress] = useState(0);
-  const [allStepsCompleted, setAllStepsCompleted] = useState(false);
-  useEffect(() => {
-    checkIfComplete();
-  }, [progress]);
-
-  const checkIfComplete = () => {
-    if (progress >= 100) {
-      setAllStepsCompleted(true);
-    } else {
-      setAllStepsCompleted(false);
-    }
-  };
-  const incrementProgress = () => {
-    setProgress((Progress) => {
-
-      return Progress + 20;
-    });
-  };
-
-  const decrementProgress = () => {
-    setProgress((progress) => {
-      return progress - 20;
-    });
-  };
-  const skipSteps = () => {
-    setAllStepsCompleted(true);
-  };
   const [steps, setSteps] = useState([
     {
       id: 1,
@@ -60,6 +32,37 @@ const Task = () => {
       complete: false,
     },
   ]);
+  const [progress, setProgress] = useState(0);
+  const [allStepsCompleted, setAllStepsCompleted] = useState(false);
+
+
+  useEffect(() => {
+    checkIfComplete();
+  }, [progress]);
+
+  const checkIfComplete = () => {
+    if (progress >= 100) {
+      setAllStepsCompleted(true);
+    } else {
+      setAllStepsCompleted(false);
+    }
+  };
+  const incrementProgress = () => {
+    setProgress((Progress) => {
+
+      return Progress + 20;
+    });
+  };
+
+  const decrementProgress = () => {
+    setProgress((progress) => {
+      return progress - 20;
+    });
+  };
+  const skipSteps = () => {
+    setAllStepsCompleted(true);
+  };
+  
   const [showTasks, setShowTasks] = useState(true);
   const toggle = (id) => {
     setSteps((prevSteps) => {
