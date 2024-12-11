@@ -1,4 +1,5 @@
 .upload-container {
+    height: 100px;
     position: relative;
     display: flex;
     background-color: #E0EAFD;
