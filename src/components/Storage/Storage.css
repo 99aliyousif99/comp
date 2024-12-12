@@ -43,8 +43,8 @@
   .loadBar{
     background-color: black;
     height: 10px;
-    width: 350px;
     border-radius: 20px;
+    transition: width 0.5s ease-in-out;
   }
   
 .files{
@@ -52,14 +52,30 @@
  align-items: center;
  justify-content: space-between;
  
+ 
 }
 .files .fileInfo{
   margin-right: 300px;
+  
 }
 .files img{
   width: 35px;
   height: 35px;
-  background-color: black;
+  background-color: #6BA91D;
   border-radius: 90px;
+}
+
+.files button {
+width: 40px;
+height: 40px;
+background-color: #E0EAFD;
+border: none;
+}
+
+.files button img{
+  width: 20px;
+  height: 30px;
+  background-color: #E0EAFD;
+  cursor: pointer;
 }
  
