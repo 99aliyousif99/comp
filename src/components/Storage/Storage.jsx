@@ -17,7 +17,7 @@ const Storage = () => {
     };
     setFileInfos((prevFileInfos) => [...prevFileInfos, newFileInfo]);
     setTotalSize((prevTotalSize) => prevTotalSize + file.size);
-
+    setProgress(0);
     
     let progressInterval = setInterval(() => {
       setProgress((prevProgress) => {
@@ -44,13 +44,15 @@ const Storage = () => {
       <div className="container">
         <input type="file" className="upload" onChange={handleFileChange} />
         <div className="upload-container">
-          <div className="loadContainer">
-            <div className="loading">
-              <label htmlFor="">Loading</label>
-              <div className="loadBar" style={{ width: `${progress}%` }}></div>
-              <div className="amountuploaded">{totalSize}</div>
-            </div>
-          </div>
+        {fileInfos.length > 0 && (
+  <div className="loadContainer">
+    <div className="loading">
+      <label htmlFor="">Loading</label>
+      <div className="loadBar" style={{ width: `${progress}%` }}></div>
+      <div className="amountuploaded">{totalSize}</div>
+    </div>
+  </div>
+)}
           {progress === 550 && fileInfos.map((fileInfo, index) => (
             <div key={index} className="files">
               <img src={checkmark} alt="" />
