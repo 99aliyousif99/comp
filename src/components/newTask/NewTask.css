@@ -1,8 +1,68 @@
-.container{
-    width:465px;
+* {
+    font-family: "Mulish", sans-serif;
+  }
+
+.container {
+    width: 465px;
     height: 583px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    position: relative; /* Add this line */
 }
 
-.container .upload{
+.container .upload {
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+}
+.container .content{
+    width: 465px;
+    height: 495px;
     background-color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.container .content .uploadContainer{
+    
+    width: 405px;
+    height: 121px;
+    background-color: blue;
+    border-radius: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.container .content .uploadContainer .uploadInfo{
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+
+.container .content .uploadContainer .uploadInfo .load{
+    width: 365px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    border-color: black;
+    border-width: 20px
+    
+}
+.container .content .uploadContainer .uploadInfo .load .innerLoad{
+    width: 82px;
+    height: 9px;
+    background-color: black;
+    border-radius: 20px;
 }
