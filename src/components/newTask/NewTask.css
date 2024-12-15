@@ -9,19 +9,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
-    position: relative; /* Add this line */
+    background-color: #EEF2F9;
+    position: relative
 }
 
 .container .upload {
     position: absolute; 
     top: 10px; 
     right: 10px; 
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+    border: solid;
+    border-color: #E0EAFD ;
+    border-radius: 10px;
+    cursor: pointer;
 }
 .container .content{
     width: 465px;
     height: 495px;
-    background-color: black;
+    background-color: white;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -33,7 +41,7 @@
     
     width: 405px;
     height: 121px;
-    background-color: blue;
+    background-color: #F6F9FF;
     border-radius: 20px;
     margin-top: 25px;
     display: flex;
@@ -53,7 +61,7 @@
     width: 365px;
     height: 15px;
     border-radius: 15px;
-    background-color: azure;
+    background-color: white;
     display: flex;
     align-items: center;
     border-color: black;
@@ -65,4 +73,49 @@
     height: 9px;
     background-color: black;
     border-radius: 20px;
+}
+
+.container .files{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.container .files .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 200px;
+    background-color:green;
+
+}
+
+.container .files .delete{
+    background-color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+}
+
+.container .files .gapping{
+    display: flex;
+    flex-direction: row;
+    width: 210px;
+}
+
+
+.content .goTo{
+    width: 405px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: white;
+    border-color:#A1ACD2 ;
+    border: solid;
+    border-width: 1px;
+    
 }

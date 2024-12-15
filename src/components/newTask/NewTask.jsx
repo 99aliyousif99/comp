@@ -1,6 +1,6 @@
 import React from "react";
 import "./NewTask.css";
-import vector from "../../assets/vector (1).svg";
+import icon from "../../assets/icon.svg";
 import checkmark from "../../assets/vector (2).svg";
 import { useState, useEffect } from "react";
 
@@ -19,10 +19,18 @@ const NewTask = () => {
           </div>
         </div>
         <div className="files">
-          <div className="check">
             
+          <div className="check">
+            <img src={checkmark} alt="" />
           </div>
+          <div className="filesInfo">
+            <p>FilesName.jpg</p>
+            <p>1 TB used</p>
+          </div>
+          <div className="gapping"></div>
+          <button className="delete"> <img src={icon} alt="" /></button>
         </div>
+        <button className="goTo">go to downloads</button>
       </div>
     </div>
   );
