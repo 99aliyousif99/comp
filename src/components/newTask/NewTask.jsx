@@ -4,69 +4,91 @@ import icon from "../../assets/icon.svg";
 import Frame from "../../assets/frame (1).svg";
 import checkmark from "../../assets/vector (2).svg";
 
-const UPLOADCARE_PUBLIC_KEY = "208144d58c69f1c0d666"; // Replace with your Uploadcare public key
+const UPLOADCARE_PUBLIC_KEY = "208144d58c69f1c0d666"; 
+const MAX_PROGRESS_WIDTH = 350; 
 
 const NewTask = () => {
   const fileInputRef = useRef(null);
-  const [filesInfo, setFilesInfo] = useState([]); // Array to store multiple file info
-  const [loading, setLoading] = useState(false); // Track loading state
+  const [filesInfo, setFilesInfo] = useState([]); 
+  const [loadingFile, setLoadingFile] = useState(null); 
+  const [uploadProgress, setUploadProgress] = useState(0); 
 
-  // Handle file upload via Uploadcare API
+ 
   const handleFileUpload = async (file) => {
-    setLoading(true); // Show loading indicator
+    setLoadingFile(file.name);
+    setUploadProgress(0); 
+
     const formData = new FormData();
     formData.append("UPLOADCARE_PUB_KEY", UPLOADCARE_PUBLIC_KEY);
-    formData.append("UPLOADCARE_STORE", "auto"); // Store files automatically
+    formData.append("UPLOADCARE_STORE", "auto"); 
     formData.append("file", file);
 
     try {
-      const response = await fetch("https://upload.uploadcare.com/base/", {
-        method: "POST",
-        body: formData,
-      });
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://upload.uploadcare.com/base/", true);
 
-      if (!response.ok) {
-        throw new Error("Upload failed");
-      }
-
-      const data = await response.json(); // Get response data
-
-      // Add the new file info to the array
-      const newFile = {
-        id: data.file, // Unique ID of the file
-        name: file.name,
-        size: (file.size / (1024 * 1024)).toFixed(2), // File size in MB
-        url: `https://ucarecdn.com/${data.file}/`, // File URL
+      
+      xhr.upload.onprogress = (event) => {
+        if (event.lengthComputable) {
+          const progress = (event.loaded / event.total) * 100; 
+          setUploadProgress(progress);
+        }
       };
-      setFilesInfo((prevFiles) => [...prevFiles, newFile]); // Append to the existing files
+
+      
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+
+         
+          const newFile = {
+            id: data.file, 
+            name: file.name,
+            size: (file.size / (1024 * 1024)).toFixed(2), 
+            url: `https://ucarecdn.com/${data.file}/`, 
+          };
+          setFilesInfo((prevFiles) => [...prevFiles, newFile]);
+        } else {
+          console.error("Upload failed:", xhr.responseText);
+        }
+
+        setLoadingFile(null); 
+        setUploadProgress(0); 
+      };
+
+      xhr.onerror = () => {
+        console.error("Error during file upload");
+        setLoadingFile(null);
+        setUploadProgress(0); 
+      };
+
+      xhr.send(formData); 
     } catch (error) {
       console.error("Error uploading file:", error);
-    } finally {
-      setLoading(false); // Hide loading indicator
     }
   };
 
-  // Trigger file input dialog
+
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
 
-  // Handle file selection
+ 
   const handleInputChange = (event) => {
-    const file = event.target.files[0]; // Get the selected file
+    const file = event.target.files[0]; 
     if (file) {
-      handleFileUpload(file); // Upload the file
+      handleFileUpload(file); 
     }
   };
 
-  // Handle file deletion
+  
   const handleDeleteFile = (id) => {
     setFilesInfo((prevFiles) => prevFiles.filter((file) => file.id !== id));
   };
 
   return (
     <div className="container">
-      {/* Custom Upload Button */}
+      
       <button className="upload" onClick={handleButtonClick}>
         <img src={Frame} alt="Upload" />
       </button>
@@ -78,21 +100,26 @@ const NewTask = () => {
       />
 
       <div className="content">
-        {/* Display loading state */}
-        {loading && (
+        
+        {loadingFile && (
           <div className="uploadContainer">
             <div className="uploadInfo">
-              <span>Uploading...</span>
-              <div className="load">
-                <div className="innerLoad"></div>
+              <span>Uploading {loadingFile}...</span>
+              <div className="load" style={{ width: `${MAX_PROGRESS_WIDTH}px` }}>
+                <div
+                  className="innerLoad"
+                  style={{
+                    width: `${(uploadProgress / 100) * MAX_PROGRESS_WIDTH}px`,
+                  }}
+                ></div>
               </div>
-              <p>Please wait while we upload your file</p>
+              <p>{uploadProgress.toFixed(2)}% uploaded</p>
             </div>
           </div>
         )}
 
-        {/* Display uploaded files dynamically */}
-        {!loading && filesInfo.length > 0 && (
+       
+        {filesInfo.length > 0 && (
           <div className="filesList">
             {filesInfo.map((file) => (
               <div key={file.id} className="files">
@@ -115,8 +142,8 @@ const NewTask = () => {
           </div>
         )}
 
-        {/* Display a placeholder if no files are uploaded */}
-        {!loading && filesInfo.length === 0 && <p>No files uploaded yet</p>}
+        
+        {!loadingFile && filesInfo.length === 0 && <p>No files uploaded yet</p>}
 
         <button className="goTo">Go to downloads</button>
       </div>
