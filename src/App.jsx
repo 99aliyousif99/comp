@@ -8,8 +8,8 @@ function App() {
     <>
       <div className="box">
         {/* <Product /> */}
-        {/* <Task/> */}
-        <Storage/>
+        <Task/>
+        {/* <Storage/> */}
       </div>
     </>
   );

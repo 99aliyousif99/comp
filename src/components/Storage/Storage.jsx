@@ -3,7 +3,6 @@ import "./Storage.css";
 import upload from "../../assets/upload.svg";
 import checkmark from "../../assets/vector (2).svg";
 import icon from "../../assets/icon.svg";
-
 import { UploadClient } from "@uploadcare/upload-client";
 const client = new UploadClient({ publicKey: "208144d58c69f1c0d666" });
 
@@ -57,30 +56,40 @@ const Storage = () => {
         <div className="upload-container">
           {fileInfos.length > 0 && (
             <div className="loadContainer">
-              <div className="loading">
-                <label htmlFor="">Loading</label>
-                <div
-                  className="loadBar"
-                  style={{ width: progress === 100 ? '350px' : `${progress}%` }}
-                ></div>
-                <div className="amountuploaded">{totalSize}</div>
+              <div className="loadInfo">
+                <div className="loading">
+                  <label htmlFor="">Loading</label>
+                  <div
+                    className="loadBar"
+                    style={{
+                      width: progress === 100 ? "350px" : `${progress}%`,
+                    }}
+                  ></div>
+                  <div className="amountuploaded">{totalSize}</div>
+                </div>
               </div>
             </div>
           )}
           {progress === 100 &&
             fileInfos.map((fileInfo, index) => (
               <div key={index} className="files">
-                <img src={checkmark} alt="" />
+                <div className="checkMarkdiv">
+                  <img src={checkmark} alt="" className="checkmark" />
+                </div>
+
                 <div className="fileInfo">
-                  <p>{fileInfo.name}</p>
-                  <p>{fileInfo.size}</p>
+                  <div className="nameSize">
+                    <p>{fileInfo.name}</p>
+                    <p className="loadAmount">{fileInfo.size}</p>
+                  </div>
                 </div>
                 <button onClick={() => handleDelete(index)}>
                   <img src={icon} alt="" className="trash" />
+                  <div className="lineBreak"></div>
                 </button>
-                <br />
               </div>
             ))}
+          <button className="download"> Go to downloads</button>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React from "react";
 import "./task.css";
 import vector from "../../assets/vector (1).svg";
 import checkmark from "../../assets/vector (2).svg";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Task = () => {
   const [steps, setSteps] = useState([
@@ -34,10 +34,12 @@ const Task = () => {
   ]);
   const [progress, setProgress] = useState(0);
   const [allStepsCompleted, setAllStepsCompleted] = useState(false);
-
+  const [completedTasks, setCompletedTasks] = useState(0);
 
   useEffect(() => {
     checkIfComplete();
+    console.log(progress)
+    
   }, [progress]);
 
   const checkIfComplete = () => {
@@ -47,9 +49,9 @@ const Task = () => {
       setAllStepsCompleted(false);
     }
   };
+
   const incrementProgress = () => {
     setProgress((Progress) => {
-
       return Progress + 20;
     });
   };
@@ -59,10 +61,11 @@ const Task = () => {
       return progress - 20;
     });
   };
+
   const skipSteps = () => {
     setAllStepsCompleted(true);
   };
-  
+
   const [showTasks, setShowTasks] = useState(true);
   const toggle = (id) => {
     setSteps((prevSteps) => {
@@ -73,17 +76,21 @@ const Task = () => {
       const toggledStep = updatedSteps.find((step) => step.id === id);
       if (toggledStep.complete) {
         incrementProgress();
+        setCompletedTasks((prev) => prev + 1);
         checkIfComplete();
       } else {
         decrementProgress();
+        setCompletedTasks((prev) => prev - 1);
       }
 
       return updatedSteps;
     });
   };
+
   const toggleTasks = () => {
     setShowTasks(!showTasks);
   };
+
   return (
     <>
       <div className="container">
@@ -98,15 +105,23 @@ const Task = () => {
           <p>
             Here are a few steps to help you <br /> hit the ground
           </p>
-          <div style={{paddingBottom:'20px',width:'260px',display:"flex",alignItems:'center',gap:"10px"}}>
+          <div
+            style={{
+              paddingBottom: "20px",
+              width: "260px",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
             {progress}%
             <div
               style={{
                 width: `${progress}%`,
                 height: "4px",
                 background: "#16182E",
-                border:"solid",
-                borderRadius:"20px"
+                border: "solid",
+                borderRadius: "20px",
               }}
             ></div>
           </div>
@@ -126,11 +141,15 @@ const Task = () => {
               </div>
             ))}
           </div>
-          <button className="btn" onClick={skipSteps}>Skip this</button>
+          <button className="btn" onClick={skipSteps}>
+            Skip this
+          </button>
         </div>
       </div>
       <div className="starting">
-      {allStepsCompleted && <button>Get started</button>}
+        <button disabled={!allStepsCompleted}>
+          Get started <div className="tasknum"> {completedTasks}</div>
+        </button>
       </div>
     </>
   );

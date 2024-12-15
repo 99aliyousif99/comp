@@ -1,4 +1,14 @@
-
+.container {
+  height: 420px;
+  width: 325px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: aliceblue;
+}
 progress {
   width: 240px;
 }
@@ -11,7 +21,6 @@ progress {
   width: 20px;
   height: 20px;
   border: none;
-  background-color: white;
 }
 .container .tour button img {
   width: 20px;
@@ -19,6 +28,9 @@ progress {
   cursor: pointer;
 }
 
+.content {
+  margin-left: 40px;
+}
 .content p {
   font-family: mulish;
   padding-bottom: 15px;
@@ -29,7 +41,7 @@ progress {
   align-items: center;
   padding-bottom: 15px;
 }
-.content .progress .bar{
+.content .progress .bar {
   background-color: white;
   height: 10px;
   width: 250px;
@@ -37,7 +49,7 @@ progress {
   border-radius: 20px;
   border-color: grey;
 }
-.content .progress .bar{
+.content .progress .bar {
   background-color: black;
   height: 10px;
   width: px;
@@ -55,60 +67,74 @@ hr {
   flex-direction: column;
   gap: 20px;
 }
-.content .tasks.show{
-    max-height: 1000px; 
+.content .tasks.show {
+  max-height: 1000px;
   opacity: 1;
 }
-.content .tasks.hide{
-    max-height: 0;
-    opacity: 0;
+.content .tasks.hide {
+  max-height: 0;
+  opacity: 0;
 }
-.content .tasks .task{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-weight: bold;
-    
+.content .tasks .task {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
 }
-.content .tasks .task p{
-    padding: 0 !important;
+.content .tasks .task p {
+  padding: 0 !important;
 }
-.content .tasks .task button{
-    border-radius: 99999px;
-    border-color: #DFDDF1;
-    background-color: #16182E;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+.content .tasks .task button {
+  border-radius: 99999px;
+  border-color: #dfddf1;
+  background-color: #16182e;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: solid;
+  border-width: 2px;
 }
-.content .tasks .task button img{
-    width: 15px;
-    height: 15px;
-    
-}
-
-.content .btn{
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    padding-top: 40px;
+.content .tasks .task button img {
+  width: 15px;
+  height: 15px;
 }
 
-.starting{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 250px;
-    padding-top: 20px;
+.content .btn {
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
-.starting button{
-    border: none;
-    background-color: black;
-    color: white;
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
+
+.starting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 230px;
+}
+.starting button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: black;
+  color: white;
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.starting .tasknum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 90px;
+  color: black;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  font-weight: bold;
 }
