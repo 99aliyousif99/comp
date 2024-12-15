@@ -7,7 +7,9 @@
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px;
-  background-color: aliceblue;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 progress {
   width: 240px;
@@ -21,6 +23,7 @@ progress {
   width: 20px;
   height: 20px;
   border: none;
+  background-color: white;
 }
 .container .tour button img {
   width: 20px;
@@ -106,6 +109,7 @@ hr {
   border: none;
   cursor: pointer;
   margin-top: 20px;
+  background-color: white;
 }
 
 .starting {
