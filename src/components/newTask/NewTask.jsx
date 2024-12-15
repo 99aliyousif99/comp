@@ -1,13 +1,14 @@
 import React from "react";
 import "./NewTask.css";
 import icon from "../../assets/icon.svg";
+import Frame from "../../assets/frame (1).svg";
 import checkmark from "../../assets/vector (2).svg";
 import { useState, useEffect } from "react";
 
 const NewTask = () => {
   return (
     <div className="container">
-      <button className="upload"><input type="file" /></button>
+      <button className="upload"><img src={Frame} alt="" /></button>
       <div className="content">
         <div className="uploadContainer">
           <div className="uploadInfo">
