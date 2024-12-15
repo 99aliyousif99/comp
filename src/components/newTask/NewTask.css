@@ -1,0 +1,8 @@
+.container{
+    width:465px;
+    height: 583px;
+}
+
+.container .upload{
+    background-color: black;
+}

@@ -6,8 +6,10 @@ import { useState, useEffect } from "react";
 
 const NewTask = () => {
   return (
-    <div>NewTask</div>
-  )
-}
+    <div className="container">
+      <button className="upload">upload</button>
+    </div>
+  );
+};
 
-export default NewTask
+export default NewTask;
