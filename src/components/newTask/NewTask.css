@@ -26,6 +26,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
+.container input{
+    display: none;
+}
 .container .content{
     width: 465px;
     height: 495px;

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const NewTask = () => {
   return (
     <div className="container">
-      <button className="upload">a</button>
+      <button className="upload"><input type="file" /></button>
       <div className="content">
         <div className="uploadContainer">
           <div className="uploadInfo">
@@ -30,6 +30,7 @@ const NewTask = () => {
           <div className="gapping"></div>
           <button className="delete"> <img src={icon} alt="" /></button>
         </div>
+        
         <button className="goTo">go to downloads</button>
       </div>
     </div>
