@@ -7,6 +7,11 @@ import axios from 'axios';
 const UPLOADCARE_PUBLIC_KEY = "208144d58c69f1c0d666"; 
 const MAX_PROGRESS_WIDTH = 350; 
 
+const formatFileSize = (size) => { 
+  if (size < 1024 * 1024) return `${(size / 1024).toFixed(2)} KB`; 
+  if (size < 1024 * 1024 * 1024) return `${(size / 1024 / 1024).toFixed(2)} MB`; 
+};
+
 const NewTask = () => {
   const fileInputRef = useRef(null);
   const [filesInfo, setFilesInfo] = useState([]); 
@@ -41,7 +46,7 @@ const NewTask = () => {
         const newFile = {
           id: data.file, 
           name: file.name,
-          size: (file.size / (1024 * 1024)).toFixed(2), 
+          size: formatFileSize(file.size), 
           url: `https://ucarecdn.com/${data.file}/`, 
         };
         setFilesInfo((prevFiles) => [...prevFiles, newFile]);
@@ -98,7 +103,7 @@ const NewTask = () => {
                   }}
                 ></div>
               </div>
-              <p>{uploadedAmount} / {totalAmount} bytes uploaded</p>
+              <p>{formatFileSize(uploadedAmount)} / {formatFileSize(totalAmount)} uploaded</p>
             </div>
           </div>
         )}
@@ -112,7 +117,7 @@ const NewTask = () => {
                 </div>
                 <div className="filesInfo">
                   <p>{file.name}</p>
-                  <p>{file.size} MB</p>
+                  <p>{file.size}</p>
                 </div>
                 <div className="gapping"></div>
                 <button
