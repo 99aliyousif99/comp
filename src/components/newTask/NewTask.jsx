@@ -3,9 +3,10 @@ import "./NewTask.css";
 import icon from "../../assets/icon.svg";
 import Frame from "../../assets/frame (1).svg";
 import checkmark from "../../assets/vector (2).svg";
-
+import axios from 'axios';
 const UPLOADCARE_PUBLIC_KEY = "208144d58c69f1c0d666"; 
 const MAX_PROGRESS_WIDTH = 350; 
+
 
 const NewTask = () => {
   const fileInputRef = useRef(null);
@@ -13,7 +14,6 @@ const NewTask = () => {
   const [loadingFile, setLoadingFile] = useState(null); 
   const [uploadProgress, setUploadProgress] = useState(0); 
 
- 
   const handleFileUpload = async (file) => {
     setLoadingFile(file.name);
     setUploadProgress(0); 
@@ -24,46 +24,35 @@ const NewTask = () => {
     formData.append("file", file);
 
     try {
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://upload.uploadcare.com/base/", true);
-
-      
-      xhr.upload.onprogress = (event) => {
-        if (event.lengthComputable) {
-          const progress = (event.loaded / event.total) * 100; 
-          setUploadProgress(progress);
-        }
-      };
-
-      
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          const data = JSON.parse(xhr.responseText);
-
+      const response = await axios.post("https://upload.uploadcare.com/base/", formData, {
+        onUploadProgress: (event) => {
          
-          const newFile = {
-            id: data.file, 
-            name: file.name,
-            size: (file.size / (1024 * 1024)).toFixed(2), 
-            url: `https://ucarecdn.com/${data.file}/`, 
-          };
-          setFilesInfo((prevFiles) => [...prevFiles, newFile]);
-        } else {
-          console.error("Upload failed:", xhr.responseText);
+            const progress = (event.loaded / event.total) * 100; 
+            setUploadProgress(progress);
+          
         }
+      });
 
-        setLoadingFile(null); 
-        setUploadProgress(0); 
-      };
+      if (response.status === 200) {
+        const data = response.data;
 
-    
+        const newFile = {
+          id: data.file, 
+          name: file.name,
+          size: (file.size / (1024 * 1024)).toFixed(2), 
+          url: `https://ucarecdn.com/${data.file}/`, 
+        };
+        setFilesInfo((prevFiles) => [...prevFiles, newFile]);
+      } else {
+        console.error("Upload failed:", response.data);
+      }
 
-      xhr.send(formData); 
+      setLoadingFile(null); 
+      setUploadProgress(0); 
     } catch (error) {
       console.error("Error uploading file:", error);
     }
   };
-
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
