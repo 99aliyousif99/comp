@@ -18,13 +18,13 @@
     top: 10px; 
     right: 10px; 
     background-color: white;
-    width: 40px;
-    height: 40px;
-    border-width: 3px;
+    width: 60px;
+    height: 60px;
     border: solid;
     border-color: #E0EAFD ;
     border-radius: 10px;
     cursor: pointer;
+    border-width: 8px;
 }
 
 .container .content{
@@ -35,7 +35,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+
 }
 
 .container .content .uploadContainer{
@@ -83,7 +85,7 @@
     gap: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-
+    font-weight: bold;
 }
 .container .files .check{
     display: flex;

@@ -56,11 +56,7 @@ const NewTask = () => {
         setUploadProgress(0); 
       };
 
-      xhr.onerror = () => {
-        console.error("Error during file upload");
-        setLoadingFile(null);
-        setUploadProgress(0); 
-      };
+    
 
       xhr.send(formData); 
     } catch (error) {
