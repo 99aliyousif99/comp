@@ -3,20 +3,21 @@
   }
 
 .container {
+    position: relative;
     width: 465px;
-    height: 583px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #EEF2F9;
-    position: relative
+    background-color: #EEF2F9
+    
 }
 
 .container .upload {
     position: absolute; 
-    top: 10px; 
-    right: 10px; 
+    top: -70px; 
+    right: -1px; 
     background-color: white;
     width: 60px;
     height: 60px;
@@ -29,15 +30,17 @@
 
 .container .content{
     width: 465px;
-    height: 495px;
+    min-height: 200px; 
+    height: auto; 
+    overflow-y: auto; 
     background-color: white;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-
+    box-shadow: 0px 15px 35px -10px #A8B8D7CC;
+    position: relative;
+    padding-bottom: 20px;
 }
 
 .container .content .uploadContainer{
@@ -121,5 +124,5 @@
     border: solid;
     border-width: 1px;
     margin-top: 20px;
-    
+    flex-shrink: 0;
 }
