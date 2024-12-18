@@ -89,6 +89,14 @@
   background-color: white;
   border: none;
 }
+.ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  float: left;
+  height: 0;
+  pointer-events: none;
+  margin-left: 16px;
+}
 .textArea .RTE {
   margin: 15px;
   background: #fdfcfd;
