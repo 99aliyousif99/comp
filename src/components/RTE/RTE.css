@@ -12,7 +12,11 @@
   box-shadow: 0px 25px 45px -17px #141e4242;
   border-radius: 20px;
 }
-
+.widgetContent .answer{
+  margin-right: 335px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
 .widget .widgetContent {
   display: flex;
   align-items: center;
@@ -22,55 +26,101 @@
 
 .widget .widgetContent .textArea {
   width: 431px;
-  height: 177px;
+  height: 150px;
   background: #fdfcfd;
   border: 1px solid #eae1e5;
   border-radius: 5px;
   display: flex;
-  justify-content: center;
   padding-top: 10px;
- 
+  flex-direction: column;
 }
-.widget .widgetContent .textArea .buttonsDiv{
+.widget .widgetContent .textArea .buttonsDiv {
   background-color: white;
-  width: 411px;
+  width: 400px;
   height: 36px;
-  box-shadow: 0px 1px 25px -7px #E7DDE9;
-  border-radius:10px;
+  box-shadow: 0px 1px 25px -7px #e7dde9;
+  border-radius: 5px;
   display: flex;
   align-items: center;
-  
+  margin-left: 15px;
+  box-shadow: 0px 1px 25px -7px #e7dde9;
 }
-.set1{
-    display: flex;
-    gap: 2px;
-    
+.set1 {
+  display: flex;
+  gap: 2px;
+  margin-left: 15px;
 }
-.set1 button{
-   cursor: pointer;
-    border: none;
-    background-color: white;
-}
-
-.set2{
-    display: flex;
-    gap: 2px;
-    margin-left: 30px;
-}
-.set2 button{
-    border: none;
-    background-color: white;
-    cursor: pointer;
+.set1 button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
 }
 
-.set3{
+.set2 {
+  display: flex;
+  gap: 2px;
+  margin-left: 30px;
+}
+.set2 button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.set3 {
   display: flex;
   align-items: center;
   gap: 2px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
-.set3 button{
+.set3 button {
   cursor: pointer;
   background-color: white;
   border: none;
+}
+
+.set4 {
+  display: flex;
+  gap: 4px;
+  margin-left: 40px;
+}
+
+.set4 button {
+  background-color: white;
+  border: none;
+}
+.textArea .RTE {
+  margin: 15px;
+  background: #fdfcfd;
+  border: none;
+  outline: none;
+  height: 300px;
+  border: none;
+  resize: none;
+  font-weight: 700;
+}
+
+.widget .post {
+  width: 198px;
+  height: 48px;
+  border-radius: 5px;
+  background: #141e42;
+  color: white;
+  margin-top: 20px;
+  margin-right: 235px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.widget .policy {
+  margin-right: 80px;
+  padding-top: 10px;
+  font-weight: 600;
+  color: grey;
+}
+
+.widget .policy a{
+  text-decoration: none;
+  color: #687FE9;
+
 }
