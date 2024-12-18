@@ -146,6 +146,7 @@ const RTE = () => {
               </button>
             </div>
           </div>
+          
           <EditorContent editor={editor} />
         </div>
         <button className="post">Post Your Answer</button>

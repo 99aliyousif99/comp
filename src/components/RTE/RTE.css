@@ -84,10 +84,14 @@
   gap: 4px;
   margin-left: 40px;
 }
-
+.tiptap {
+  outline: none;
+  margin-left: 35px;
+}
 .set4 button {
   background-color: white;
   border: none;
+  cursor: pointer;
 }
 .ProseMirror p.is-empty::before {
   content: attr(data-placeholder);
@@ -95,7 +99,7 @@
   float: left;
   height: 0;
   pointer-events: none;
-  margin-left: 16px;
+
 }
 .textArea .RTE {
   margin: 15px;
