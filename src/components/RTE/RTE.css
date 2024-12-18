@@ -1,24 +1,76 @@
 * {
-    font-family: "Mulish", sans-serif;
-  }
-
-
-
-.widget{
-    width: 601px;
-    height: 476px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    box-shadow: 0px 25px 45px -17px #141E4242;
- border-radius: 20px;
+  font-family: "Mulish", sans-serif;
 }
 
-.widget .widgetContent{
+.widget {
+  width: 601px;
+  height: 476px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0px 25px 45px -17px #141e4242;
+  border-radius: 20px;
+}
+
+.widget .widgetContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.widget .widgetContent .textArea {
+  width: 431px;
+  height: 177px;
+  background: #fdfcfd;
+  border: 1px solid #eae1e5;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+ 
+}
+.widget .widgetContent .textArea .buttonsDiv{
+  background-color: white;
+  width: 411px;
+  height: 36px;
+  box-shadow: 0px 1px 25px -7px #E7DDE9;
+  border-radius:10px;
+  display: flex;
+  align-items: center;
+  
+}
+.set1{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    gap: 2px;
     
+}
+.set1 button{
+   cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.set2{
+    display: flex;
+    gap: 2px;
+    margin-left: 30px;
+}
+.set2 button{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.set3{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 20px;
+}
+.set3 button{
+  cursor: pointer;
+  background-color: white;
+  border: none;
 }
