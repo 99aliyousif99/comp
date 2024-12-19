@@ -3,8 +3,10 @@
 }
 
 .widget {
-  width: 601px;
-  height: 476px;
+  width: auto;
+  height: auto;
+  min-height: 150px;
+  min-width: 601px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +20,8 @@
   font-weight: bold;
 }
 .widget .widgetContent {
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,14 +29,18 @@
 }
 
 .widget .widgetContent .textArea {
-  width: 431px;
-  height: 150px;
+  width: auto;
+  height: auto;
+  min-height: 200px;
+  min-width: 431px;
   background: #fdfcfd;
   border: 1px solid #eae1e5;
   border-radius: 5px;
   display: flex;
   padding-top: 10px;
   flex-direction: column;
+  overflow-y: auto
+  ;
 }
 .widget .widgetContent .textArea .buttonsDiv {
   background-color: white;
@@ -45,16 +53,27 @@
   margin-left: 15px;
   box-shadow: 0px 1px 25px -7px #e7dde9;
 }
+.active-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4E8F6;
+  color: white; 
+  border: none; 
+  cursor: pointer;
+  border-radius: 6px;
+}
+.notActive{
+  background-color: white;
+  cursor: pointer;
+  border: none;
+}
 .set1 {
   display: flex;
   gap: 2px;
   margin-left: 15px;
 }
-.set1 button {
-  cursor: pointer;
-  border: none;
-  background-color: white;
-}
+
 
 .set2 {
   display: flex;
@@ -73,16 +92,20 @@
   gap: 2px;
   margin-left: 30px;
 }
-.set3 button {
-  cursor: pointer;
-  background-color: white;
-  border: none;
-}
+
 blockquote {
   border-left: 4px solid #ccc;
   padding-left: 16px;
   color: #555;
   font-style: italic;
+}
+code {
+  background: black;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-family: monospace;
+  font-size: 0.9em;
 }
 .set4 {
   display: flex;
@@ -93,11 +116,7 @@ blockquote {
   outline: none;
   margin-left: 35px;
 }
-.set4 button {
-  background-color: white;
-  border: none;
-  cursor: pointer;
-}
+
 .ProseMirror p.is-empty::before {
   content: attr(data-placeholder);
   color: #aaa;

@@ -80,12 +80,14 @@ const RTE = () => {
               <button
                 onClick={() => editor.chain().focus().toggleBold().run()}
                 disabled={!editor.can().chain().focus().toggleBold().run()}
+                className={editor.isActive("bold") ? "active-button" : "notActive"}
               >
                 <img src={Bold} alt="" />
               </button>
               <button
                 onClick={() => editor.chain().focus().toggleItalic().run()}
                 disabled={!editor.can().chain().focus().toggleItalic().run()}
+                className={editor.isActive("italic") ? "active-button" : "notActive"}
               >
                 <img src={Italic} alt="" />
               </button>
@@ -99,6 +101,7 @@ const RTE = () => {
               </button>
               <button
                 onClick={() => editor.chain().focus().toggleBlockquote().run()}
+                className={editor.isActive("blockquote") ? "active-button" : "notActive"}
               >
                 <img src={Quote} alt="" />
               </button>
@@ -106,8 +109,9 @@ const RTE = () => {
                 <img src={Img} alt="" />
               </button>
               <button
-                onClick={() => editor.chain().focus().setCode().run()}
-                disabled={editor.isActive("code")}
+                onClick={() => editor.chain().focus().toggleCode().run()}
+                disabled={!editor.can().chain().focus().toggleCode().run()}
+                className={editor.isActive("code") ? "active-button" : "notActive"}
               >
                 <img src={Code} alt="" />
               </button>
@@ -115,11 +119,14 @@ const RTE = () => {
             <div className="set3">
               <button
                 onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                className={editor.isActive("orderedList") ? "active-button" : "notActive"}
               >
                 <img src={Ordered} alt="" />
               </button>
               <button
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
+                className={editor.isActive("bulletList") ? "active-button" : "notActive"}
+
               >
                 <img src={Unordered} alt="" />
               </button>
@@ -129,6 +136,7 @@ const RTE = () => {
                 onClick={() =>
                   editor.chain().focus().setTextAlign("left").run()
                 }
+                className={editor.isActive({ textAlign: 'left' }) ? "active-button" : "notActive"}
               >
                 <img src={Left} alt="" />
               </button>
@@ -136,6 +144,7 @@ const RTE = () => {
                 onClick={() =>
                   editor.chain().focus().setTextAlign("center").run()
                 }
+                className={editor.isActive({ textAlign: 'center' }) ? "active-button" : "notActive"}
               >
                 <img src={Center} alt="" />
               </button>
@@ -143,6 +152,7 @@ const RTE = () => {
                 onClick={() =>
                   editor.chain().focus().setTextAlign("right").run()
                 }
+                className={editor.isActive({ textAlign: 'right' }) ? "active-button" : "notActive"}
               >
                 <img src={Right} alt="" />
               </button>
