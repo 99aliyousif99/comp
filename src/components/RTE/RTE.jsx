@@ -27,7 +27,7 @@ const RTE = () => {
     extensions: [
       StarterKit,
       Placeholder.configure({
-        placeholder: "Write something …",
+        placeholder: "Start typing your answer",
       }),
       Link.configure({
         openOnClick: true,
@@ -96,6 +96,7 @@ const RTE = () => {
               <button
                 onClick={addLink}
                 disabled={!editor.can().chain().focus().setLink().run()}
+                className={editor.isActive('link') ? "active-button" : "notActive"}
               >
                 <img src={link} alt="" />
               </button>
@@ -105,7 +106,8 @@ const RTE = () => {
               >
                 <img src={Quote} alt="" />
               </button>
-              <button onClick={addImage}>
+              <button onClick={addImage} 
+              className={editor.isActive("image") ? "active-button" : "notActive"}>
                 <img src={Img} alt="" />
               </button>
               <button

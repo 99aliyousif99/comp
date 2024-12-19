@@ -52,6 +52,7 @@
   align-items: center;
   margin-left: 15px;
   box-shadow: 0px 1px 25px -7px #e7dde9;
+ 
 }
 .active-button {
   display: flex;
@@ -80,11 +81,7 @@
   gap: 2px;
   margin-left: 30px;
 }
-.set2 button {
-  border: none;
-  background-color: white;
-  cursor: pointer;
-}
+
 
 .set3 {
   display: flex;
@@ -114,7 +111,8 @@ code {
 }
 .tiptap {
   outline: none;
-  margin-left: 35px;
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
 .ProseMirror p.is-empty::before {
@@ -123,6 +121,7 @@ code {
   float: left;
   height: 0;
   pointer-events: none;
+  
 
 }
 .textArea .RTE {
