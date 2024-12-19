@@ -159,3 +159,86 @@ code {
   color: #687FE9;
 
 }
+
+.hljs-comment,
+    .hljs-quote {
+      color: #616161;
+    }
+
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-attribute,
+    .hljs-tag,
+    .hljs-regexp,
+    .hljs-link,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class {
+      color: #f98181;
+    }
+
+    .hljs-number,
+    .hljs-meta,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params {
+      color: #fbbc88;
+    }
+
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet {
+      color: #b9f18d;
+    }
+
+    .hljs-title,
+    .hljs-section {
+      color: #faf594;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #70cff8;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: 700;
+    }
+
+
+    .ProseMirror code {
+      background-color: #2E2B29;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: "Courier New", Courier, monospace;
+      color: white; 
+      width: 100%;
+   
+    }
+    
+    .ProseMirror pre[style*="text-align"] {
+      text-align: start; 
+    }
+
+
+    pre {
+      background-color: #2e2b29;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: "Courier New", Courier, monospace;
+    }
+    
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      font-size: 1em;
+    }
