@@ -1,15 +1,12 @@
 import React, { useCallback } from "react";
 import OrderedList from "@tiptap/extension-ordered-list";
-
-import "./RTE.css";
 import BulletList from "@tiptap/extension-bullet-list";
-
 import Bold from "../../assets/Bold.svg";
 import Italic from "../../assets/italic.svg";
 import link from "../../assets/Link.svg";
 import Image from "@tiptap/extension-image";
 import CodeExtension from "@tiptap/extension-code";
-import Para from "../../assets/Paragraph.svg";
+import Quote from "../../assets/Paragraph.svg";
 import Img from "../../assets/Image.svg";
 import Code from "../../assets/Code.svg";
 import Ordered from "../../assets/Ordered.svg";
@@ -22,8 +19,8 @@ import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
-
-const extensions = [StarterKit];
+import Blockquote from "@tiptap/extension-blockquote";
+import "./RTE.css";
 
 const RTE = () => {
   const editor = useEditor({
@@ -42,11 +39,13 @@ const RTE = () => {
       Image,
       OrderedList,
       BulletList,
+      Blockquote,
       TextAlign.configure({
-        types: ['heading', 'paragraph'],
-      })
+        types: ["heading", "paragraph","blockquote"],
+      }),
     ],
   });
+
   const addLink = () => {
     const url = prompt("Enter the URL");
     if (url) {
@@ -70,6 +69,7 @@ const RTE = () => {
   if (!editor) {
     return null;
   }
+
   return (
     <div className="widget">
       <div className="widgetContent">
@@ -97,8 +97,10 @@ const RTE = () => {
               >
                 <img src={link} alt="" />
               </button>
-              <button>
-                <img src={Para} alt="" />
+              <button
+                onClick={() => editor.chain().focus().toggleBlockquote().run()}
+              >
+                <img src={Quote} alt="" />
               </button>
               <button onClick={addImage}>
                 <img src={Img} alt="" />
@@ -146,7 +148,7 @@ const RTE = () => {
               </button>
             </div>
           </div>
-          
+
           <EditorContent editor={editor} />
         </div>
         <button className="post">Post Your Answer</button>
