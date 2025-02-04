@@ -1,5 +1,5 @@
 import React from "react";
-import "./task.css";
+import "./Task.css";
 import vector from "../../assets/Vector (1).svg";
 import checkmark from "../../assets/Vector (2).svg";
 import { useState, useEffect } from "react";
