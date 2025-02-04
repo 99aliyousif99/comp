@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import "./product.css";
-import headset from "../../assets/Image 1.png";
+import headset from "../../assets/image 1.png";
 import frame from "../../assets/Frame.svg";
 import vec from "../../assets/Vector.svg";
 const Product = () => {
