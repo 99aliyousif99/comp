@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     background-color: #EEF2F9
+
     
 }
 
@@ -38,9 +39,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-shadow: 0px 15px 35px -10px #A8B8D7CC;
     position: relative;
     padding-bottom: 20px;
+    margin-right: 40px;
 }
 
 .container .content .uploadContainer{
