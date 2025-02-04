@@ -6,7 +6,7 @@ import frame from "../../assets/Frame.svg";
 import vec from "../../assets/Vector.svg";
 const Product = () => {
   return (
-    <div className="container">
+    <div className="containers">
       <img src={headset} alt="test" />
       <div className="content">
         <div className="shipping">
