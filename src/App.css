@@ -16,3 +16,23 @@
   height: 100vh;
   flex-direction: column;
 }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.nav a:hover {
+  background-color: #0056b3;
+}

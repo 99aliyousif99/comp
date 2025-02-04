@@ -1,19 +1,32 @@
+import { BrowserRouter as Router, Routes, Route,Link } from "react-router-dom";
 import "./App.css";
-//import Product from "./components/productCard/Product";
-//import Task from "./components/task/Task"
-//import Storage from "./components/Storage/Storage"
+import Product from "./components/productCard/Product";
+import Task from "./components/task/Task";
+import Storage from "./components/Storage/Storage";
 import NewTask from "./components/newTask/NewTask";
 import RTE from "./components/RTE/RTE";
 function App() {
   return (
     <>
-      <div className="box">
-        {/* <Product /> */}
-        {/* <Task/> */}
-        {/* <Storage/> */}
-        {/* <NewTask/> */}
-        <RTE/>
-      </div>
+
+      <Router>
+      <div className="nav">
+          <Link to="/product">Product</Link>
+          <Link to="/task">Task</Link>
+          <Link to="/storage">Storage</Link>
+          <Link to="/new-task">New Task</Link>
+          <Link to="/">RTE</Link>
+        </div>
+        <div className="box">
+          <Routes>
+            <Route path="/product" element={<Product />} />
+            <Route path="/task" element={<Task />} />
+            <Route path="/storage" element={<Storage />} />
+            <Route path="/new-task" element={<NewTask />} />
+            <Route path="/" element={<RTE />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
