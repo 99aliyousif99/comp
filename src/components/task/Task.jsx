@@ -1,7 +1,7 @@
 import React from "react";
 import "./task.css";
-import vector from "../../assets/vector (1).svg";
-import checkmark from "../../assets/vector (2).svg";
+import vector from "../../assets/Vector (1).svg";
+import checkmark from "../../assets/Vector (2).svg";
 import { useState, useEffect } from "react";
 
 const Task = () => {

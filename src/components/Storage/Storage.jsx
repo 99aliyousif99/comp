@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Storage.css";
-import upload from "../../assets/upload.svg";
-import checkmark from "../../assets/vector (2).svg";
-import icon from "../../assets/icon.svg";
+import checkmark from "../../assets/Vector (2).svg";
+import icon from "../../assets/Icon.svg";
 import { UploadClient } from "@uploadcare/upload-client";
 const client = new UploadClient({ publicKey: "208144d58c69f1c0d666" });
 

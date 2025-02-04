@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./NewTask.css";
-import icon from "../../assets/icon.svg";
-import Frame from "../../assets/frame (1).svg";
-import checkmark from "../../assets/vector (2).svg";
+import icon from "../../assets/Icon.svg";
+import Frame from "../../assets/Frame (1).svg";
+import checkmark from "../../assets/Vector (2).svg";
 import axios from 'axios';
 const UPLOADCARE_PUBLIC_KEY = "208144d58c69f1c0d666"; 
 const MAX_PROGRESS_WIDTH = 350; 
