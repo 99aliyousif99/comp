@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import OrderedList from "@tiptap/extension-ordered-list";
 import BulletList from "@tiptap/extension-bullet-list";
 import Bold from "../../assets/Bold.svg";
-import Italic from "../../assets/italic.svg";
+import Italic from "../../assets/iItalic.svg";
 import link from "../../assets/Link.svg";
 import Image from "@tiptap/extension-image";
 import CodeExtension from "@tiptap/extension-code";
